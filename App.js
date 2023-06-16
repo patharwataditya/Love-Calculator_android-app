@@ -1,9 +1,14 @@
 import React, {useState} from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, TextInput, Button} from 'react-native';
+
+function cal_love() {}
 function App() {
   return (
     <View>
-      <Text>hII</Text>
+      <Text style={{color: 'red', fontSize: 40}}>Love Calculator</Text>
+      <TextInput placeholder="Enter Male Name" />
+      <TextInput placeholder="Enter Female Name" />
+      <Button title="CALCULATE" onPress={cal_love} />
     </View>
   );
 }
