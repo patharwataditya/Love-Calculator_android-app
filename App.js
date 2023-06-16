@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
-import {Text, View, TextInput, Button} from 'react-native';
+import {Text, View, TextInput, Button, ImageBackground} from 'react-native';
+
+const backgroundImage = require('./img1.jpg');
 
 function App() {
   const [maleName, setMaleName] = useState('');
@@ -27,12 +29,73 @@ function App() {
       setShowResult(true);
     }
   }
+
   return (
-    <View>
-      <Text style={{color: 'red', fontSize: 40}}>Love Calculator</Text>
-      <TextInput placeholder="Enter Male Name" />
-      <TextInput placeholder="Enter Female Name" />
-      <Button title="CALCULATE" onPress={cal_love} />
+    <View style={{flex: 1, backgroundColor: 'rgba(194, 255, 245, 0.5)'}}>
+      <ImageBackground
+        source={backgroundImage}
+        style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}
+        imageStyle={{opacity: 100}}>
+        <View
+          style={{
+            backgroundColor: 'rgba(194, 255, 245, 0.8)',
+            padding: 15,
+            borderRadius: 20,
+          }}>
+          <Text
+            style={{
+              color: '#0E86D4',
+              fontSize: 40,
+              margin: 20,
+              textAlign: 'center',
+            }}>
+            Love Calculator
+          </Text>
+          <TextInput
+            placeholder="Enter Male Name"
+            placeholderTextColor="#055C9D"
+            value={maleName}
+            onChangeText={text => setMaleName(text)}
+            style={{
+              width: 300,
+              height: 40,
+              borderColor: 'gray',
+              borderWidth: 1,
+              marginBottom: 20,
+              paddingHorizontal: 10,
+              color: 'black',
+            }}
+          />
+          <TextInput
+            placeholder="Enter Female Name"
+            placeholderTextColor="#055C9D"
+            value={femaleName}
+            onChangeText={text => setFemaleName(text)}
+            style={{
+              width: 300,
+              height: 40,
+              borderColor: 'gray',
+              borderWidth: 1,
+              marginBottom: 20,
+              paddingHorizontal: 10,
+              color: 'black',
+            }}
+          />
+          <Button title="Calculate" onPress={cal_love} />
+          <Text style={{marginTop: 10, color: 'black'}}>
+            Male Name: {maleName}
+          </Text>
+          <Text style={{marginTop: 10, marginBottom: 20, color: 'black'}}>
+            Female Name: {femaleName}
+          </Text>
+
+          {showResult && (
+            <Text style={{marginBottom: 20, color: 'black'}}>
+              Result: {result}
+            </Text>
+          )}
+        </View>
+      </ImageBackground>
     </View>
   );
 }
