@@ -64,6 +64,8 @@ function App() {
               marginBottom: 20,
               paddingHorizontal: 10,
               color: 'black',
+              borderBottomLeftRadius: 5,
+              borderTopRightRadius: 5,
             }}
           />
           <TextInput
@@ -79,6 +81,8 @@ function App() {
               marginBottom: 20,
               paddingHorizontal: 10,
               color: 'black',
+              borderBottomLeftRadius: 5,
+              borderTopRightRadius: 5,
             }}
           />
           <Button title="Calculate" onPress={cal_love} />
